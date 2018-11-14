@@ -1,8 +1,7 @@
 #include <bits/stdc++.h> 
 using namespace std; 
   
-// dp[i][j] is going to store true if sum j is 
-// possible with array elements from 0 to i. 
+// dp[i][j] is going to store true if sum j is possible with array elements from 0 to i. 
 bool** dp; 
   
 void display(const vector<int>& v) 
@@ -12,13 +11,10 @@ void display(const vector<int>& v)
     printf("\n"); 
 } 
   
-// A recursive function to print all subsets with the 
-// help of dp[][]. Vector p[] stores current subset. 
+// A recursive function to print all subsets with the help of dp[][]. Vector p[] stores current subset.  
 void printSubsetsRec(int arr[], int i, int sum, vector<int>& p) 
 { 
-    // If we reached end and sum is non-zero. We print 
-    // p[] only if arr[0] is equal to sun OR dp[0][sum] 
-    // is true. 
+    // If we reached end and sum is non-zero. We print p[] only if arr[0] is equal to sun OR dp[0][sum] is true. 
     if (i == 0 && sum != 0 && dp[0][sum]) 
     { 
         p.push_back(arr[i]); 
@@ -33,8 +29,7 @@ void printSubsetsRec(int arr[], int i, int sum, vector<int>& p)
         return; 
     } 
   
-    // If given sum can be achieved after ignoring 
-    // current element. 
+    // If given sum can be achieved after ignoring current element. 
     if (dp[i-1][sum]) 
     { 
         // Create a new vector to store path 
@@ -42,8 +37,7 @@ void printSubsetsRec(int arr[], int i, int sum, vector<int>& p)
         printSubsetsRec(arr, i-1, sum, b); 
     } 
   
-    // If given sum can be achieved after considering 
-    // current element. 
+    // If given sum can be achieved after considering current element. 
     if (sum >= arr[i] && dp[i-1][sum-arr[i]]) 
     { 
         p.push_back(arr[i]); 
@@ -81,13 +75,11 @@ void printAllSubsets(int arr[], int n, int sum)
         return; 
     } 
   
-    // Now recursively traverse dp[][] to find all 
-    // paths from dp[n-1][sum] 
+    // Now recursively traverse dp[][] to find all paths from dp[n-1][sum] 
     vector<int> p; 
     printSubsetsRec(arr, n-1, sum, p); 
 } 
   
-// Driver code 
 int main() 
 { 
     int arr[] = {1, 2, 3, 4, 5}; 

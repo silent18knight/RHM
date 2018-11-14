@@ -1,3 +1,5 @@
+// program for the implementation of prefect sum problem.
+
 #include <bits/stdc++.h> 
 using namespace std; 
   
@@ -88,3 +90,9 @@ int main()
     printAllSubsets(arr, n, sum); 
     return 0; 
 }
+
+/*output of the program is:
+  4 3 2 1 
+  5 3 2 
+  5 4 1 
+*/
